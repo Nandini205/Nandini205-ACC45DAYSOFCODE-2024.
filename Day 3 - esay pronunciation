@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n; 
+cout<<"Enter the number";
+    cin >> n;
+    
+    while (n--) {
+        long long N, X;
+        cin >> N >> X;
+        
+       
+        if (X % 2 == N % 2 && X < N) {
+            cout << "YES" << endl;
+        } else {
+            cout << "NO" << endl;
+        }
+    }
+    
+    return 0;
+}
