@@ -1,0 +1,34 @@
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n; 
+cout<<"Enter the number";
+    cin >> n;
+
+    while (n--) {
+        int N; 
+cout<<"enter the number";
+        cin >> N;
+        
+        vector<int> A(N);
+        unordered_map<int, int> freq; 
+
+        for (int i = 0; i < N; i++) {
+            cin >> A[i];
+            freq[A[i]]++;
+        }
+
+        int maxFreq = 0; 
+        for (auto it : freq) {
+            maxFreq = max(maxFreq, it.second);
+        }
+
+       
+        cout << N - maxFreq << endl;
+    }
+
+    return 0;
+}
