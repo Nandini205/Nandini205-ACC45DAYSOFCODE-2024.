@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int n; 
+cout<<"Enter the number";
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        int X;
+    cout<<"Enter the x";
+    cin >> X;
+    int Y;
+    cout<<"Enter the y";
+    cin >> Y;
+    int Z;
+    cout<<"Enter the z";
+     cin >> Z;
+        if (X > 50) {
+            cout << "A" << endl;
+        } else if (Y > 50) {
+            cout << "B" << endl;
+        } else if (Z> 50) {
+            cout << "C" << endl;
+        } else {
+            cout << "NOTA" << endl;
+        }
+    }
+
+    return 0;
+}
