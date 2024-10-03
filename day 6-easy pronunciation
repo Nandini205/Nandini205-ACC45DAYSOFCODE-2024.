@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+cout<<"Enter the number";
+    cin >> n;  
+
+    for (int i = 0; i < n; i++) {
+        int X, Y;
+        cin >> X >> Y;  
+       
+        int scoreAfirst = (500 - 2 * X) + (1000 - 4 * (X + Y));
+
+       
+        int scoreBfirst = (1000 - 4 * Y) + (500 - 2 * (X + Y));
+
+        
+        cout << max(scoreAfirst, scoreBfirst) << endl;
+    }
+
+    return 0;
+}
