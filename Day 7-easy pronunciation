@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n; 
+
+    cin >> n;
+
+    while (n--) {
+        int N, K; 
+        cin >> N >> K;
+
+        vector<int> A(N); 
+        for (int i = 0; i < N; ++i) {
+            cin >> A[i];
+        }
+
+        string result = ""; 
+        for (int i = 0; i < N; ++i) {// C 
+            if (K >= A[i]) { 
+                result += '1';
+                K -= A[i];     
+            } else {
+                result += '0'; 
+            }
+        }
+
+        cout << result << endl; }
+
+
+    return 0;
+}
