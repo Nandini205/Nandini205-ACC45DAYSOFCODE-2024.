@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+
+    for (int i = 0; i < T; i++) {
+        int N;
+        cin >> N;
+        
+        // If N % 3 == 0, Bob wins. Otherwise, Alice wins.
+        if (N % 3 == 0) {
+            cout << "BOB" << endl;
+        } else {
+            cout << "ALICE" << endl;
+        }
+    }
+    
+    return 0;
+}
