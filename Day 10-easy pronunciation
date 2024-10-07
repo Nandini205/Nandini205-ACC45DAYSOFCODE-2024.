@@ -1,0 +1,30 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    int n; 
+    cout<<"Enter the number";
+    cin >> n;
+    
+    while (n--) {
+        int N;
+        cout<<"Enter the number";
+       cin>>N;
+     int  A;
+        cout<<"Enter the number";
+       cin>>A;
+      
+        
+        int U = N - A;
+
+       
+        int minMasks = min(A, U);
+        
+        cout << minMasks << endl;
+    }
+
+    return 0;
+}
+
