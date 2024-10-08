@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int T; 
+    cin >> T;
+
+    while (T--) {
+        int N;
+        cin >> N;
+
+        vector<int> A(N);
+        int oddCount = 0; 
+
+        
+        for (int i = 0; i < N; i++) {
+            cin >> A[i]; 
+            if (A[i] % 2 != 0) { 
+
+                oddCount++;
+        }
+
+       
+        if (oddCount >= 2) {
+            cout << "YES" << endl;
+        } else {
+            cout << "NO" << endl;
+        }
+    }
+
+    return 0;
+}
