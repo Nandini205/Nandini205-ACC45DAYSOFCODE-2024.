@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int T;  
+cout<<"ENTER the number";
+    cin >> T;
+    
+    for (int i = 0; i < T; i++) {
+        int N; 
+        cin >> N;
+        string gestures;
+        cin >> gestures;
+        
+        bool isIndian = false;
+        bool isNotIndian = false;
+        
+       
+        for (int j = 0; j < N; j++) {
+            if (gestures[j] == 'I') {
+                isIndian = true;
+                break;  
+            } else if (gestures[j] == 'Y') {
+                isNotIndian = true;
+            }
+        }
+        
+        if (isIndian) {
+            cout << "INDIAN" << endl;
+        } else if (isNotIndian) {
+            cout << "NOT INDIAN" << endl;
+        } else {
+            cout << "NOT SURE" << endl;
+        }
+    }
+    
+    return 0;
+}
