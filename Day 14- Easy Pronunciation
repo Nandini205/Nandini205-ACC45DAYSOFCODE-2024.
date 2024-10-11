@@ -1,0 +1,32 @@
+#include <iostream>
+
+#include <algorithm> 
+
+using namespace std;
+
+int main() {
+    
+    int num; 
+cout<<"Enter the number";
+    cin >> num;
+    while (num--) {
+        int X, Y;
+        cin >> X >> Y;
+        int operations = 0;
+
+        while (!(X >= 2 * Y || Y >= 2 * X))
+        {
+            if (X < Y) {
+
+                X++; 
+            } else {
+                Y++; 
+            }
+            operations++;
+        }
+
+        cout << operations << endl;
+    }
+
+    return 0;
+}
