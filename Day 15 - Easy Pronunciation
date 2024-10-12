@@ -1,0 +1,40 @@
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
+int main() {
+    int T; 
+cout<<"Enter the number";
+    cin >> T;
+
+    while (T--) {
+        int N; 
+        cin >> N;
+
+        unordered_map<int, int> animal_count; 
+        for (int i = 0; i < N; ++i) {
+            int animal;
+
+            cin >> animal;
+
+            animal_count[animal]++;
+        }
+
+        bool possible = true;
+       
+        for (auto &entry : animal_count) {
+            if (entry.second % 2 != 0) {
+                possible = false;
+                break;
+            }
+        }
+
+        if (possible)
+            cout << "YES" << endl;
+        else
+            cout << "NO" << endl;
+    }
+
+    return 0;
+}
