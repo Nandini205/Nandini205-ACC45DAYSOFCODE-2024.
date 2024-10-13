@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+char reverse_char(char c) {
+    return 'z' - (c - 'a');
+}
+
+
+string encode_message(int N, string G) {
+   
+    for (int i = 0; i < N - 1; i += 2) {
+        swap(S[i], S[i + 1]);
+    }
+
+    for (int i = 0; i < N; ++i) {
+        S[i] = reverse_char(S[i]);
+    }
+    return S;
+}
+int main() {
+    int num;
+    cin >> num; 
+
+    while (num--) {
+        int N;
+        string G;
+        cin >> N >> G;
+
+       
+        string encoded_message = encode_message(N, G);
+
+      
+        cout << encoded_message << endl;
+    }
+
+    return 0;
+}
