@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;  
+
+    while (T--) {
+        int A, B;
+        cin >> A >> B; 
+
+        int turn = 1;   
+        while (true) {
+            if (turn % 2 != 0) { 
+                if (A < turn) {
+                    cout << "Bob" << endl;
+                    break;
+                }
+                A -= turn;
+            } else {  
+                if (B < turn) {
+                    cout << "Limak" << endl;
+                    break;
+                }
+                B -= turn;
+            }
+            turn++;
+        }
+    }
+
+    return 0;
+}
