@@ -1,0 +1,37 @@
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+    while (T--) {
+        int N;
+        cin >> N; 
+        int P[N];
+        unordered_map<int, int> group_count;
+        
+       
+        for (int i = 0; i < N; i++) {
+            cin >> P[i];
+            group_count[P[i]]++; 
+        }
+        
+        bool possible = true;
+        
+      
+        for (auto &entry : group_count) {
+            if (entry.second % entry.first != 0) {
+                possible = false;
+                break;
+            }
+        }
+        
+        if (possible) {
+            cout << "YES" << endl;
+        } else {
+            cout << "NO" << endl;
+        }
+    }
+    return 0;
+}
