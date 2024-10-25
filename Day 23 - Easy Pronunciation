@@ -1,0 +1,49 @@
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+#include <algorithm>
+using namespace std;
+
+int min_operations_to_make_all_elements_same(int N, vector<int>& A) {
+    unordered_map<int, int> frequency;
+
+   
+    for (int num : A) {
+        frequency[num]++;
+    }
+
+  
+    int max_freq = 0;
+    for (const auto& pair : frequency) {
+        max_freq = max(max_freq, pair.second);
+    }
+
+ 
+    return N - max_freq;
+}
+
+int main() {
+    int T;
+    cin >> T;
+    vector<int> results;
+
+    while (T--) {
+        int N;
+        cin >> N;
+        vector<int> A(N);
+
+        for (int i = 0; i < N; ++i) {
+            cin >> A[i];
+        }
+
+       
+        results.push_back(min_operations_to_make_all_elements_same(N, A));
+    }
+
+   
+    for (int result : results) {
+        cout << result << endl;
+    }
+
+    return 0;
+}
