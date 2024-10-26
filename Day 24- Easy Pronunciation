@@ -1,0 +1,55 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+    
+    while (T--) {
+        int N;
+        cin >> N;
+        vector<int> fingers(N);
+        vector<int> sheaths(N);
+        
+       
+        for (int i = 0; i < N; i++) {
+            cin >> fingers[i];
+        }
+        
+       
+        for (int i = 0; i < N; i++) {
+            cin >> sheaths[i];
+        }
+        
+        bool front = true, back = true;
+        
+        // Checking the 'front' orientation
+        for (int i = 0; i < N; i++) {
+            if (fingers[i] > sheaths[i]) {
+                front = false;
+                break;
+            }
+        }
+        
+        for (int i = 0; i < N; i++) {
+            if (fingers[i] > sheaths[N - 1 - i]) {
+                back = false;
+                break;
+            }
+        }
+        
+        
+        if (front && back) {
+            cout << "both" << endl;
+        } else if (front) {
+            cout << "front" << endl;
+        } else if (back) {
+            cout << "back" << endl;
+        } else {
+            cout << "none" << endl;
+        }
+    }
+    
+    return 0;
+}
