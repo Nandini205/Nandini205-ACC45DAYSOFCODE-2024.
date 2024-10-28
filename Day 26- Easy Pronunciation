@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+#include <unordered_map>
+using namespace std;
+
+int main() {
+    int n; 
+    cin >> n;
+    
+    while (n--) {
+        string S;
+        cin >> S;
+        
+        unordered_map<char, int> jewelCount;
+        
+       
+        for (char jewel : S) {
+            jewelCount[jewel]++;
+        }
+        
+        int minCost = 0;
+        
+       
+        for (auto &pair : jewelCount) {
+           
+            minCost += (pair.second + 1) / 2;
+        }
+        
+        cout << minCost << endl;
+    }
+    
+    return 0;
+}
