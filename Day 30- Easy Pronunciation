@@ -1,0 +1,57 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <unordered_map>
+using namespace std;
+
+int min_operations_to_permutation(int N, vector<int>& A) {
+    vector<int> freq(N + 1, 0);  
+    int operations = 0;
+
+    for (int i = 0; i < N; i++) {
+        if (A[i] <= N) {
+            freq[A[i]]++;
+        } else {
+            operations++; 
+        }
+    }
+
+
+    for (int i = 1; i <= N; i++) {
+        if (freq[i] == 0) {  // If `i` is missing in the array
+            for (int j = 1; j <= N; j++) {
+                if (freq[j] > 1) {  
+                    freq[j]--;       
+                    freq[i]++;       
+                    operations++;    
+                    break;
+                }
+            }
+        }
+    }
+
+    
+    for (int i = 1; i <= N; i++) {
+        if (freq[i] != 1) return -1; 
+    }
+
+    return operations;
+}
+
+int main() {
+    int T;
+    cin >> T;
+    while (T--) {
+        int N;
+        cin >> N;
+        vector<int> A(N);
+        for (int i = 0; i < N; i++) {
+            cin >> A[i];
+        }
+        
+        int result = min_operations_to_permutation(N, A);
+        cout << result << endl;
+    }
+    return 0;
+}
+wDay 1 - Easy Pronunciation
