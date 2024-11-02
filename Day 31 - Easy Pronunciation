@@ -1,0 +1,45 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int x;
+    cin >> x; 
+    
+    while (x--) {
+        int n;
+        cin >> n; 
+        
+        vector<int> L(n); 
+        vector<int> R(n); 
+        for (int i = 0; i < n; ++i) {
+            cin >> L[i];
+        }
+        
+        for (int i = 0; i < n; ++i) {
+            cin >> R[i];
+        }
+        
+        int bestIndex = 0; 
+        int maxProduct = L[0] * R[0]; 
+        int bestRating = R[0]; 
+        
+        for (int i = 1; i < n; ++i) {
+            int product = L[i] * R[i];
+            
+            if (product > maxProduct || 
+                (product == maxProduct && R[i] > bestRating) || 
+                (product == maxProduct && R[i] == bestRating && i < bestIndex)) {
+                
+                maxProduct = product;
+                bestRating = R[i];
+                bestIndex = i;
+            }
+        }
+        
+      
+        cout << bestIndex + 1 << endl;
+    }
+    
+    return 0;
+}
