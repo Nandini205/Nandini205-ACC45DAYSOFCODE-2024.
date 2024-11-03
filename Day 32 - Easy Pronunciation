@@ -1,0 +1,59 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+
+vector<int> generatePrimes(int limit) {
+    vector<bool> isPrime(limit + 1, true);
+    vector<int> primes;
+    isPrime[0] = isPrime[1] = false;
+    for (int i = 2; i <= limit; i++) {
+        if (isPrime[i]) {
+            primes.push_back(i);
+            for (int j = i * i; j <= limit; j += i) {
+                isPrime[j] = false;
+            }
+        }
+    }
+    return primes;
+}
+
+
+void segmentedSieve(int m, int n) {
+    int limit = sqrt(n);
+    vector<int> primes = generatePrimes(limit);
+    vector<bool> isPrime(n - m + 1, true);
+
+  
+    for (int prime : primes) {
+        int start = max(prime * prime, (m + prime - 1) / prime * prime);
+        for (int j = start; j <= n; j += prime) {
+            isPrime[j - m] = false;
+        }
+    }
+
+    // Handle the case where m = 1, as 1 is not a prime number
+    if (m == 1) {
+        isPrime[0] = false;
+    }
+
+    // Output all primes in the range [m, n]
+    for (int i = 0; i <= n - m; i++) {
+        if (isPrime[i]) {
+            cout << (i + m) << endl;
+        }
+    }
+}
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int m, n;
+        cin >> m >> n;
+        segmentedSieve(m, n);
+        cout << endl;  
+    }
+    return 0;
+}
