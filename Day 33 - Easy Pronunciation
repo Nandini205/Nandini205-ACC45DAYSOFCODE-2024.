@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int x;
+    cin >> x;  
+    while (x--) {
+        int N;
+        cin >> N;  
+        vector<int> B(N);
+        for (int i = 0; i < N; ++i) {
+            cin >> B[i];
+        }
+
+        bool all_same = true;
+        for (int i = 1; i < N; ++i) {
+            if (B[i] != B[0]) {
+                all_same = false;
+                break;
+            }
+        }
+
+      
+        if (all_same) {
+            cout << "YES\n";
+        } else {
+            cout << "NO\n";
+        }
+    }
+    return 0;
+}
