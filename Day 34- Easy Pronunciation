@@ -1,0 +1,56 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int maxTrace(const vector<vector<int>>& matrix, int N) {
+    int max_trace = 0;
+
+   
+    for (int start_col = 0; start_col < N; ++start_col) {
+        int trace_sum = 0;
+        int row = 0, col = start_col;
+        while (row < N && col < N) {
+            trace_sum += matrix[row][col];
+            ++row;
+            ++col;
+        }
+        max_trace = max(max_trace, trace_sum);
+    }
+
+  
+    for (int start_row = 1; start_row < N; ++start_row) {
+        int trace_sum = 0;
+        int row = start_row, col = 0;
+        while (row < N && col < N) {
+            trace_sum += matrix[row][col];
+            ++row;
+            ++col;
+        }
+        max_trace = max(max_trace, trace_sum);
+    }
+
+    return max_trace;
+}
+
+int main() {
+    int x;
+    cin >> x;  
+    while (x--) {
+        int N;
+        cin >> N;  
+        vector<vector<int>> matrix(N, vector<int>(N));
+        
+      
+        for (int i = 0; i < N; ++i) {
+            for (int j = 0; j < N; ++j) {
+                cin >> matrix[i][j];
+            }
+        }
+
+        
+        cout << maxTrace(matrix, N) << endl;
+    }
+
+    return 0;
+}
