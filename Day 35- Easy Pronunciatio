@@ -1,0 +1,51 @@
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int x;
+    cin >> x;
+
+    while (x--) {
+        int N;
+        cin >> N;
+        vector<int> recommendations(N);
+
+        
+        for (int i = 0; i < N; i++) {
+            cin >> recommendations[i];
+        }
+
+       
+        unordered_map<int, int> count;
+        for (int rec : recommendations) {
+            count[rec]++;
+        }
+
+       
+        int max_count = 0;
+        int best_laptop = -1;
+        bool confused = false;
+
+        for (const auto &entry : count) {
+            if (entry.second > max_count) {
+                max_count = entry.second;
+                best_laptop = entry.first;
+                confused = false;
+            } else if (entry.second == max_count) {
+                confused = true;
+            }
+        }
+
+       
+        if (confused) {
+            cout << "CONFUSED" << endl;
+        } else {
+            cout << best_laptop << endl;
+        }
+    }
+
+    return 0;
+}
