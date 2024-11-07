@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int x;
+    cin >> x;
+    
+    while (x--) {
+        long long L, K;
+        cin >> L >> K;
+        
+        
+        long long base_length = L / K;
+        long long remainder = L % K;
+        
+        
+        long long result = remainder * (K - remainder);
+        
+        cout << result << endl;
+    }
+    
+    return 0;
+}
