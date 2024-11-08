@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int x; 
+    cin >> x;
+    
+    while (x--) {
+        int N, X, S; 
+        cin >> N >> X >> S;
+        
+        int position = X; 
+        
+        for (int i = 0; i < S; ++i) {
+            int A, B; 
+            cin >> A >> B;
+            
+          
+            if (position == A) {
+                position = B;
+            }
+           
+            else if (position == B) {
+                position = A;
+            }
+        }
+        
+        
+        cout << position << endl;
+    }
+    
+    return 0;
+}
