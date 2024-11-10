@@ -1,0 +1,36 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int x;
+    cin >> x;
+    
+    while (x--) {
+        int N, X;
+        cin >> N >> X;
+        
+        vector<int> health(N);
+        for (int i = 0; i < N; i++) {
+            cin >> health[i];
+        }
+
+     
+        int singleTargetTime = 0;
+        for (int i = 0; i < N; i++) {
+            singleTargetTime += (health[i] + X - 1) / X;  
+        }
+
+       
+        int multiTargetTime = 0;
+        for (int i = 0; i < N; i++) {
+            multiTargetTime = max(multiTargetTime, health[i]);
+        }
+
+       
+        cout << min(singleTargetTime, multiTargetTime) << endl;
+    }
+
+    return 0;
+}
