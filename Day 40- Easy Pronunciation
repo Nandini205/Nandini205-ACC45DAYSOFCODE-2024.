@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int X, Y;
+    cin >> X >> Y;
+
+    int timeAtDoubleSpeed = Y / 2;         
+    int timeAtNormalSpeed = X - Y;         
+    int totalTime = timeAtDoubleSpeed + timeAtNormalSpeed;
+
+    cout << totalTime << endl;
+    return 0;
+}
