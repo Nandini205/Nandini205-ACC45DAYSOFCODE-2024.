@@ -1,0 +1,26 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T; 
+
+    while (T--) {
+        long long N, X, Y;
+        cin >> N >> X >> Y; 
+
+      
+        long long horizontal = N - 1;
+        long long vertical = N - 1;  
+        long long diag1 = min(X - 1, Y - 1) + min(N - X, N - Y); 
+        long long diag2 = min(X - 1, N - Y) + min(N - X, Y - 1);
+
+       
+        long long result = horizontal + vertical + diag1 + diag2;
+
+        cout << result << endl;
+    }
+
+    return 0;
+}
