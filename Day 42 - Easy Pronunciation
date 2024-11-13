@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main() {
+    int x;
+    cin >> x; 
+    
+    while (x--) {
+        int N, K;
+        cin >> N; 
+
+       vector<int> playlist(N);
+        for (int i = 0; i < N; ++i) {
+          cin >> playlist[i]; 
+        }
+        
+        cin >> K; 
+        int uncleJohnyLength = playlist[K - 1]; 
+        sort(playlist.begin(), playlist.end()); 
+
+        
+        int newPosition = 0;
+        for (int i = 0; i < N; ++i) {
+            if (playlist[i] == uncleJohnyLength) {
+                newPosition = i + 1; 
+                break;
+            }
+        }
+
+       cout << newPosition <<endl;
+    }
+
+    return 0;
+}
