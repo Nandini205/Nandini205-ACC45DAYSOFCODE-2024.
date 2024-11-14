@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int X;
+    cin >> X;
+    
+    while (X--) {
+        long long N;
+        cin >> N;
+        
+        
+        long long oddCount = (N + 1) / 2;
+        
+       
+        long long evenCount = N / 2;
+        
+       
+        long long result = oddCount * evenCount;
+        
+        cout << result << endl;
+    }
+    
+    return 0;
+}
