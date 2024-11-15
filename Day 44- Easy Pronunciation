@@ -1,0 +1,39 @@
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+
+int main() {
+    int x;
+    cin >> x;
+
+    while (x--) {
+        int N;
+        cin >> N;
+
+        unordered_map<int, int> swipeCount; 
+        int currentInside = 0;             
+        int maxInside = 0;                 
+        for (int i = 0; i < N; ++i) {
+            int id;
+            cin >> id;
+
+            
+            if (swipeCount[id] % 2 == 0) {
+               
+                ++currentInside;
+                swipeCount[id]++;
+            } else {
+               
+                --currentInside;
+                swipeCount[id]++;
+            }
+
+            
+            maxInside = max(maxInside, currentInside);
+        }
+
+        cout << maxInside << endl;
+    }
+
+    return 0;
+}
